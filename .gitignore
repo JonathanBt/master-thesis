@@ -76,9 +76,7 @@ target/
 .ipynb_checkpoints/
 
 # exclude data from source control by default
-/data/pdf_reports_pages_labeled/
-/data/pdf_reports_labeled/
-/data/pdf_reports_unlabeled/
+# /data/
 
 # exclude virtual environment
 /venv/
