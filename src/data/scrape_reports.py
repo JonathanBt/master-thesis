@@ -3,7 +3,8 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-def scrape_reports(df, path_output):
+
+def scrape_pdf_reports(df, path_output):
     """This function scrapes pdf reports corresponding to the urls in the column 'CSR_URL' in df.
     It also updates the column CSR_Filename in df with the filename of the respective pdf file.
 
@@ -28,7 +29,7 @@ def scrape_reports(df, path_output):
     }
 
     for index, row in df.iterrows():
-        filename = str(row['ID']) + '_' + row['CSR_Period_Relative'] + '_' + row['Identifier'] + '.pdf'
+        filename = str(row['ID']) + '_' + row['Ticker'] + '_' + row['Financial_Period_Absolute'] + '.pdf'
         pathname = Path(path_output + filename)
         try:
             response = requests.get(row['CSR_URL'], headers=headers, verify=False, timeout=10)
@@ -41,9 +42,6 @@ def scrape_reports(df, path_output):
                 df.loc[index, 'CSR_Filename'] = 'Error'
         except:
             df.loc[index, 'CSR_Filename'] = 'Error'
-
-
-
 
 
 def scrape_urls_responsibilityreports_website():
@@ -89,10 +87,10 @@ def scrape_urls_responsibilityreports_website():
         # Add row for most recent report
         dict_ = {
             "Link": link,
-            "Name": company_name,
+            "Company_Name": company_name,
             "Ticker": ticker,
-            "Year": CSR_Year,
-            "URL": CSR_URL
+            "Financial_Period_Absolute": CSR_Year,
+            "CSR_URL": CSR_URL
         }
         list_.append(dict_)
         # Add rows for historic reports (if available)
@@ -107,10 +105,10 @@ def scrape_urls_responsibilityreports_website():
                 CSR_URL = ''
             dict_ = {
                 "Link": link,
-                "Name": company_name,
+                "Company_Name": company_name,
                 "Ticker": ticker,
-                "Year": CSR_Year,
-                "URL": CSR_URL
+                "Financial_Period_Absolute": CSR_Year,
+                "CSR_URL": CSR_URL
             }
             list_.append(dict_)
 
