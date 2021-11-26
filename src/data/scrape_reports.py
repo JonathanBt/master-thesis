@@ -29,7 +29,7 @@ def scrape_pdf_reports(df, path_output):
     }
 
     for index, row in df.iterrows():
-        filename = str(row['ID']) + '_' + row['Ticker'] + '_' + row['Financial_Period_Absolute'] + '.pdf'
+        filename = str(row['ID']) + '_' + str(row['Identifier']) + '_' + str(row['Financial_Period_Absolute']) + '.pdf'
         pathname = Path(path_output + filename)
         try:
             response = requests.get(row['CSR_URL'], headers=headers, verify=False, timeout=10)
@@ -75,6 +75,12 @@ def scrape_urls_responsibilityreports_website():
             ticker = ticker.get_text(strip=True)
         else:
             ticker = ''
+        # Get exchange
+        exchange = soup.select_one(".right")
+        if exchange:
+            exchange = exchange.get_text(strip=True).replace('Exchange', '').replace('More', '')
+        else:
+            exchange = ''
         # Get most recent report
         try:
             CSR_Year = int(soup.select_one(".bold_txt").text[0:4])
@@ -89,6 +95,7 @@ def scrape_urls_responsibilityreports_website():
             "Link": link,
             "Company_Name": company_name,
             "Ticker": ticker,
+            "Exchange": exchange,
             "Financial_Period_Absolute": CSR_Year,
             "CSR_URL": CSR_URL
         }
@@ -107,6 +114,7 @@ def scrape_urls_responsibilityreports_website():
                 "Link": link,
                 "Company_Name": company_name,
                 "Ticker": ticker,
+                "Exchange": exchange,
                 "Financial_Period_Absolute": CSR_Year,
                 "CSR_URL": CSR_URL
             }
