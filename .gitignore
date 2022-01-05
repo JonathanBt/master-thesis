@@ -77,7 +77,8 @@ target/
 
 # exclude data from source control 
 /data/pdf_reports/
-/data/interim/df5.p
+/data/interim/df1.p
+/data/interim/df2.p
 
 
 # exclude virtual environment
