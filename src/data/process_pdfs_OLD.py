@@ -3,6 +3,7 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from io import StringIO
+from datetime import timedelta, datetime
 import pikepdf
 
 
@@ -16,6 +17,8 @@ def convert_pdf_to_txt(path_report):
         text (str): Extracted text.
 
     """
+    # Limit maximum time for text extraction to prevent pdfminer from getting stuck (5 minutes per pdf)
+    endtime = datetime.utcnow() + timedelta(seconds=300)
 
     try:
         fp = open('data/pdf_reports/' + path_report, 'rb')
@@ -28,9 +31,15 @@ def convert_pdf_to_txt(path_report):
         pages = PDFPage.get_pages(fp)
 
         for page in pages:
-            interpreter.process_page(page)
+            if datetime.utcnow() <= endtime:
+                interpreter.process_page(page)
+            else:
+                break
 
-        text = retstr.getvalue()
+        if datetime.utcnow() <= endtime:
+            text = retstr.getvalue()
+        else:
+            text = 'Error'
 
         fp.close()
         device.close()
@@ -52,9 +61,15 @@ def convert_pdf_to_txt(path_report):
             pages = PDFPage.get_pages(fp)
 
             for page in pages:
-                interpreter.process_page(page)
+                if datetime.utcnow() <= endtime:
+                    interpreter.process_page(page)
+                else:
+                    break
 
-            text = retstr.getvalue()
+            if datetime.utcnow() <= endtime:
+                text = retstr.getvalue()
+            else:
+                text = 'Error'
 
             fp.close()
             device.close()
