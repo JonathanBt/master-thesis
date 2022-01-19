@@ -79,7 +79,7 @@ target/
 /data/pdf_reports/
 reports_text.p
 reports_text_clean.p
-
+reports_tokenized.p
 
 # exclude virtual environment
 /venv/
