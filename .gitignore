@@ -80,6 +80,7 @@ target/
 reports_text.p
 reports_text_clean.p
 reports_tokenized.p
+reports_tokenized_excl_company_names.p
 
 # exclude virtual environment
 /venv/
