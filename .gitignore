@@ -81,6 +81,7 @@ reports_text.p
 reports_text_clean.p
 reports_tokenized.p
 OLD_reports_tokenized.p
+/models/
 
 # exclude virtual environment
 /venv/
