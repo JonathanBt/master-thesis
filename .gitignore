@@ -77,10 +77,8 @@ target/
 
 # exclude data from source control 
 /data/pdf_reports/
-reports_text.p
-reports_text_clean.p
-reports_tokenized.p
-OLD_reports_tokenized.p
+/data/processed/
+/data/interim/
 /models/
 
 # exclude virtual environment
