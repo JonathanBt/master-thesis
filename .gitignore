@@ -75,10 +75,10 @@ target/
 # Jupyter NB Checkpoints
 .ipynb_checkpoints/
 
-# exclude data from source control 
+# exclude data and modelsfrom source control 
 /data/pdf_reports/
-/data/processed/
 /data/interim/
+/data/processed/
 /models/
 
 # exclude virtual environment
