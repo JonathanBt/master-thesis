@@ -9,8 +9,8 @@ def scrape_pdf_reports(df, path_output):
     It also updates the column CSR_Filename in df with the filename of the respective pdf file.
 
     Args:
-        df (pandas dataframe): dataframe containing the urls to be scraped in the column 'CSR_URL'.
-        path_output (str): path to store the scraped pdf files.
+        df (pandas dataframe): Dataframe containing the urls to be scraped in the column 'CSR_URL'.
+        path_output (str): Path to store the scraped pdf files.
 
     Returns:
         None
@@ -49,9 +49,10 @@ def scrape_urls_responsibilityreports_website():
     In addition to the URLs, it also stores the link to the page, company name, ticker, and year of the report in a df.
 
     Args:
+	None.
 
     Returns:
-        df (pandas dataframe): dataframe containing the urls of the CSRs.
+        df (pandas dataframe): Dataframe containing the urls of the CSRs.
 
     """
 

@@ -7,10 +7,12 @@ from sklearn.metrics import (
 
 def evaluation(model, X_test, Y_test):
     """This function creates the classification report and confusion matrices for each label.
+
     Args:
-        model (fitted model): Fitted model
-        X_test (np.array): Test set examples
-        Y_test (np.array): Test set labels
+        model (fitted model): Fitted model.
+        X_test (np.array): Test set examples.
+        Y_test (np.array): Test set labels.
+
     Returns:
         None.
     """
