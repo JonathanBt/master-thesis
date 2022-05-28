@@ -76,9 +76,7 @@ target/
 .ipynb_checkpoints/
 
 # exclude data and models from source control 
-/data/pdf_reports/
-/data/interim/
-/data/processed/
+/data/
 /models/
 
 # exclude virtual environment
