@@ -2,7 +2,9 @@ Predicting Alignment with the Sustainable Development Goals from Corporate Susta
 ==============================
 
 This repository contains the code for the master thesis "Predicting Alignment with the Sustainable Development
-Goals from Corporate Sustainability Reports". The repository is structured as follows:
+Goals from Corporate Sustainability Reports". 
+
+The repository is structured as described below. Due to file sizes, the data and models cannot be uploaded to Github.
 
 ------------
 
