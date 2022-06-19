@@ -1,26 +1,20 @@
-master-thesis
+Predicting Alignment with the Sustainable Development Goals from Corporate Sustainability Reports
 ==============================
 
 This repository contains the code for the master thesis "Predicting Alignment with the Sustainable Development
-Goals from Corporate Sustainability Reports".
-
-Project Organization
+Goals from Corporate Sustainability Reports". The repository is structured as follows:
 ------------
 
-    ├── README.md          <- The top-level README.
-    │
     ├── data
     │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
+    │   ├── processed      <- The final data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries.
+    ├── models             <- Trained models and model predictions.
     │
     ├── notebooks          <- Jupyter notebooks. 
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment.
+    ├── references         <- Data dictionaries, manuals, and other explanatory materials.
     │
     └── src                <- Source code for use in this project.
         ├── __init__.py    <- Makes src a Python module.
