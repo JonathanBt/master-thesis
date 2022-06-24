@@ -7,7 +7,7 @@ import pikepdf
 import string
 import re
 import nltk
-import spacy # pip install spacy==2.2.4
+import spacy 
 
 
 def convert_pdf_to_txt(path_report):
